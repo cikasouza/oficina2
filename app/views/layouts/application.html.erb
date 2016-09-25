@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OficinaMecanica</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+  <%= render "layouts/navbar" %>
+  <%= render 'layouts/user_is_logged' %>
+  
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-9">
+				<div class="panel-body">
+					<%= yield %>	
+					<p class="notice"><%= notice %></p>
+					<p class="alert"><%= alert %></p>
+				</div>
+			</div>
+		</div> <!-- row -->
+	</div> <!-- container -->
+</body>
+</html>

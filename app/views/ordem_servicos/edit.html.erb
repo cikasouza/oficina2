@@ -1,0 +1,16 @@
+<div class="page-header">
+ <%= link_to veiculo_ordem_servico_path(@veiculo, @ordem_servico), :class => 'btn btn-default dropdown-toggle' do %>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    Voltar
+  <% end %>
+  
+  <h1>Editando Ordem de Serviço</h1>
+</div>
+  
+
+<%= form_for(@ordem_servico, url: veiculo_ordem_servico_path(@veiculo, @ordem_servico), :html => { :class => "form-horizontal" }) do |f| %>
+
+  <%= render partial: 'form', locals: {f: f} %>
+ 
+<% end %>
+

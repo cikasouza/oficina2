@@ -1,0 +1,63 @@
+<%= form_for(@cliente) do |f| %>
+  <% if @cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+      <% @cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+   
+  <div class="form-group">
+    <%= f.label :foto, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= image_tag @cliente.foto_url, class: 'foto' if @cliente.foto? %>
+      <%= f.file_field :foto, label: 'Foto', input_html: {accept: ('application/jpg') } %>
+     </div>
+  </div> 
+  <div class="form-group">
+    <%= f.label :nome, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :nome, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :cpf, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :cpf, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :rg, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :rg, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :telefone, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :telefone, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :endereco, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :endereco, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :sexo, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.radio_button :sexo, 'Masculino', :checked => true %> Masculino
+      <%= f.radio_button :sexo, 'Feminino' %> Feminino
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit :class => "btn btn-default dropdown-toggle", :value => "Salvar" %>
+    </div>
+  </div>
+<% end %>

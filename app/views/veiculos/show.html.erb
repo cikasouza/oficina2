@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+<div class="page-header">
+ <div class="dropdown" style="float: right;">
+  <%= link_to cliente_path(@cliente), :class => "btn btn-default dropdown-toggle" do %>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    Voltar
+  <% end %>
+  <%= link_to edit_cliente_veiculo_path(@cliente, @veiculo), :class => "btn btn-default dropdown-toggle" do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Editar
+  <% end %>
+  <%= link_to new_veiculo_ordem_servico_path(@veiculo), :class => "btn btn-default dropdown-toggle" do %>
+    <span class="glyphicon glyphicon-alt"></span>
+    Abrir Ordem de Serviço
+  <% end %>
+</div> 
+  <h1>Mostrando Veículo</h1>
+</div>
+
+
+<p>
+  <strong>Placa:</strong>
+  <%= @veiculo.placa %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @veiculo.marca %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @veiculo.modelo %>
+</p>
+
+</br></br><strong>Lista de Veículos</strong></br></br>
+ 
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+                  <th> Número da OS </th>
+                  <th> Tipo de Ordem </th>
+                  <th> Placa do veículo </th>
+      </tr>
+    </thead>
+
+    <tbody>
+    
+      <%= content_tag_for(:tr, @veiculo.ordem_servicos.order(created_at: :desc), :class => "row-table") do |ordem_servico| %>
+              
+              <td><%= ordem_servico.numero_os %></td>
+              <% if ordem_servico.orcamento? %>
+                <td>Orçamento</td>
+              <% elsif ordem_servico.pedido? %>  
+                <td>Pedido</td> 
+              <% end %>
+              <td><%= @veiculo.placa %></td>
+              <td><%= link_to 'Mostrar', veiculo_ordem_servico_path(@veiculo, ordem_servico) %></td>
+      <% end %>
+      
+    </tbody>
+  </table>
+

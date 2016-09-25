@@ -1,0 +1,53 @@
+<div class="page-header" id="header">
+  <div class="row">
+ 
+  <%= link_to cliente_relatorio_path(@cliente, :format => "pdf"), :class => 'btn btn-default dropdown-toggle hidden-print' do %>
+    <span class="glyphicon glyphicon-file"></span>
+    Gerar PDF
+  <% end %>
+    
+  </div>
+   <h1>Relatório por Cliente</h1>
+</div>
+
+ <!-- <div class="panel panel-default"> -->
+  <p class="borda_texto">
+    <div class="panel-body" id="comprovantes">   
+       <dd><strong>Nome do Cliennte:</strong> <%= @cliente.nome%></dd>
+       <dd><strong>CPF:</strong> <%= @cliente.cpf%></dd>
+       
+       </div>
+   
+  </p>   
+ 
+       
+       <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+                  <th> Número da OS </th>
+                  <th> Tipo de Ordem </th>
+                  <th> Modelo do veículo </th>
+                  <th> Placa do veículo </th>
+                  
+      </tr>
+    </thead>
+
+    <tbody>
+     <%= content_tag_for(:tr, @cliente.veiculos) do |veiculo| %>
+      <%= content_tag_for(:tr, veiculo.ordem_servicos.order(created_at: :desc), :class => "row-table") do |ordem_servico| %>
+              
+              <td><%= ordem_servico.numero_os %></td>
+              <% if ordem_servico.orcamento? %>
+                <td>Orçamento</td>
+              <% elsif ordem_servico.pedido? %>  
+                <td>Pedido</td> 
+              <% end %>
+              <td><%= veiculo.modelo %></td>
+              <td><%= veiculo.placa %></td>              
+        <% end %>
+      <% end %>
+      
+    </tbody>
+  </table>
+      
+      

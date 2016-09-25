@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+  <p>Bem vindo! <%= current_user.email %></p>
+  <%= link_to destroy_user_session_path, :method => :delete, :class => "btn btn-default dropdown-toggle" do %>
+    <span class="glyphicon glyphicon"></span>
+    Sair
+ <% end %>
+<% else %>
+  <p>Você não está logado no sistema.</p>
+  <%= link_to new_user_registration_path, :class => "btn btn-default dropdown-toggle" do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Criar Conta
+ <% end %>
+ <%= link_to new_user_session_path, :class => "btn btn-default dropdown-toggle" do %>
+    <span class="glyphicon glyphicon"></span>
+    Entrar
+ <% end %>
+<% end %>

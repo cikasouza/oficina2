@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero_os: MyString
+  orcamento: false
+  pedido: false
+  data_inicio: 2016-09-13
+  data_conclusao: 2016-09-13
+  descricao: MyText
+  valor: 1.5
+
+two:
+  numero_os: MyString
+  orcamento: false
+  pedido: false
+  data_inicio: 2016-09-13
+  data_conclusao: 2016-09-13
+  descricao: MyText
+  valor: 1.5

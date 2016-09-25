@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<div class="page-header">
+ <div class="dropdown" style="float: right;">
+  <%= link_to cliente_veiculo_path(@veiculo.cliente, @veiculo), :class => "btn btn-default dropdown-toggle" do %>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    Voltar
+  <% end %>
+  <%= link_to edit_veiculo_ordem_servico_path(@veiculo, @ordem_servico), :class => "btn btn-default dropdown-toggle" do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Editar
+  <% end %>
+</div> 
+  <h1>Mostrando Ordem de Serviço</h1>
+</div>
+<p>
+  <strong>Número da os:</strong>
+  <%= @ordem_servico.numero_os %>
+</p>
+
+<p>  
+  <% if @ordem_servico.orcamento? %>
+   <strong>Tipo de OS:</strong> Orçamento
+  <% elsif @ordem_servico.pedido %>  
+   <strong>Tipo de OS:</strong> Pedido
+  <% end %>
+</p>
+
+<p>
+  <strong>Data início:</strong>
+  <%= @ordem_servico.data_inicio %>
+</p>
+
+<p>
+  <strong>Data conclusão:</strong>
+  <%= @ordem_servico.data_conclusao %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @ordem_servico.descricao %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @ordem_servico.valor %>
+</p>
+

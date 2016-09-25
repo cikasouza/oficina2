@@ -1,0 +1,67 @@
+  <% if @ordem_servico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ordem_servico.errors.count, "error") %> prohibited this ordem_servico from being saved:</h2>
+
+      <ul>
+      <% @ordem_servico.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :numero_os, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :numero_os, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :orcamento, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-1">
+       <%= f.check_box :orcamento, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :pedido, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-1">
+       <%= f.check_box :pedido, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_inicio, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+       <%= f.text_field :data_inicio,  class: 'datepicker'  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_conclusao, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :data_conclusao,  class: 'datepicker'  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :descricao, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+       <%= f.text_area :descricao, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :valor, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+       <%= f.text_field :valor, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit :class => "btn btn-default dropdown-toggle", :value => "Salvar" %>
+    </div>
+  </div>
+ 
+<script type= "text/javascript" >  
+  $(document).ready(function(){
+  $('.datepicker').datepicker({format:'dd-mm-yyyy'});
+  $('#matricula').inputmask("9999.9.999.9999");  
+  });
+</script>   
+

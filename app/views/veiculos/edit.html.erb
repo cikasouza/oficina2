@@ -1,0 +1,16 @@
+<div class="page-header">
+<div class="page-header">
+  <%= link_to cliente_veiculo_path(@cliente, @veiculo), :class => 'btn btn-default dropdown-toggle' do %>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    Voltar
+  <% end %>
+  
+  <h1>Editando Veículo</h1>
+</div>
+  
+
+<%= form_for(@veiculo, url: cliente_veiculo_path(@cliente, @veiculo), :html => { :class => "form-horizontal" }) do |f| %>
+
+  <%= render partial: 'form', locals: {f: f} %>
+ 
+<% end %>
